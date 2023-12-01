@@ -141,6 +141,14 @@ public inline fun <T> T.takeUnless(predicate: (T) -> Boolean): T? {
 }
 
 /**
+ * Returns `this` value cast to T if its of type T or `null`, if it doesn't.
+ * Convenience for typecheck including cast.
+ */
+@kotlin.internal.InlineOnly
+inline fun <reified T> Any.takeIfInstance(): T? =
+    this as? T
+
+/**
  * Executes the given function [action] specified number of [times].
  *
  * A zero-based index of current iteration is passed as a parameter to [action].
